@@ -206,3 +206,8 @@ desplazamientoVehiculo(camion)
 desplazamientoVehiculo(coche)
 desplazamientoVehiculo(moto) """
 
+#metodos de cadenas
+nombre="Victor Munoz rodas"
+print(nombre.upper())
+print(nombre.lower())
+print(("tor" in nombre))
