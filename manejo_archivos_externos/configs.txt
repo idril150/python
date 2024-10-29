@@ -1,0 +1,3 @@
+Comienzo del textoestan?
+esta es la linea 2 ahora, se incluyo desde python
+nueva linea
