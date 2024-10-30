@@ -11,7 +11,7 @@ raiz.iconbitmap("gog.ico")#cambia el icono de la interfaz
 raiz.config(background="red")#configuraciones de la ventana raiz
 
 mainFrame=Frame()#creacion de un frame el cual debe empaquetarse
-mainFrame.pack(side="right", expand=True)#configuracion de posicion y comportamiento en la ventana raiz
+mainFrame.pack(side="bottom", expand=True)#configuracion de posicion y comportamiento en la ventana raiz
 mainFrame.config(background="blue")
 mainFrame.config(width="600",height="300")#configuracion del tamaño del frame con un tamaño fijo no adaptable
 mainFrame.config(relief="groove", bd=35)
