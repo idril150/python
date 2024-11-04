@@ -31,12 +31,13 @@ def limpiarCampos():
 def crear():
     global varDir, varNom, varApe, varPass, varId, tComen
     if mfun.bdconexion:
-        try:
-            mfun.bdcursor.execute(f"INSERT INTO DATOSUSUARIOS VALUES(NULL, '{varNom.get()}', '{varPass.get()}', '{varApe.get()}', '{varDir.get()}', '{tComen.get(1.0,END)}' )")
-            messagebox.showinfo("Sucess", f"se guardo el usuario {varNom.get()}")
+        try:        
+            datos=varNom.get(),varPass.get(),varApe.get(),varDir.get(),tComen.get(1.0,END)
+            mfun.bdcursor.execute("INSERT INTO DATOSUSUARIOS VALUES (NULL, ?,?,?,?,?)",(datos))
             mfun.bdconexion.commit()
+            messagebox.showinfo("Sucess", f"se guardo el usuario {varNom.get()}")
         except:
-            messagebox.showerror("Error", "La base de datos no esta conectada")
+            messagebox.showerror("Error"," al guardar el usuario")
     else:
         messagebox.showerror("Error","Base de datos desconectada")
 
@@ -77,7 +78,9 @@ def actualizar():
     if mfun.bdconexion:
         a=messagebox.askokcancel("WARNING", f"desea eliminar al usuario: {varNom.get()}?")
         if a:
-            mfun.bdcursor.execute(f"UPDATE DATOSUSUARIOS SET NOMBRE_U='{varNom.get()}', PASSWORD='{varPass.get()}', APELLIDO='{varApe.get()}', DIRECCION='{varDir.get()}', COMENTARIOS='{tComen.get(1.0,END)}'  WHERE ID='{(int(varId.get()))}'")
+            datos=varNom.get(),varPass.get(),varApe.get(),varDir.get(),tComen.get(1.0,END)
+            mfun.bdcursor.execute("UPDATE DATOSUSUARIOS SET NOMBRE_U=?, PASSWORD=?, APELLIDO=?, DIRECCION=?, COMENTARIOS=?",(datos))
+            #mfun.bdcursor.execute(f"UPDATE DATOSUSUARIOS SET NOMBRE_U='{varNom.get()}', PASSWORD='{varPass.get()}', APELLIDO='{varApe.get()}', DIRECCION='{varDir.get()}', COMENTARIOS='{tComen.get(1.0,END)}'  WHERE ID='{(int(varId.get()))}'")
             mfun.bdconexion.commit()
     else:
         messagebox.showerror("Error","Base de datos desconectada")

@@ -31,10 +31,7 @@ ayudaMenu=Menu(bmenu, tearoff=0)
 ayudaMenu.add_command(label="Licencia", command=mfun.licencia)
 ayudaMenu.add_command(label="Acerca de", command=mfun.acercaDe)
 
-bmenu.add_cascade(label="BD", menu=bdmenu)
-bmenu.add_cascade(label="Borrar", menu=borramenu)
-bmenu.add_cascade(label="CRUD", menu=crudMenu)
-bmenu.add_cascade(label="Ayuda", menu=ayudaMenu)
+
 
 
 #----comienzo de campos------
@@ -86,4 +83,8 @@ archivo=Menu(bmenu, tearoff=0)
 archivo.add_command(label="Nuevo", command=lambda:mfun.nuevo(frame1, frame2))
 archivo.add_command(label="cerrar", command=lambda:mfun.cerrar(frame1,frame2))
 bmenu.add_cascade(label="Archivo",menu=archivo)
+bmenu.add_cascade(label="BD", menu=bdmenu)
+bmenu.add_cascade(label="Borrar", menu=borramenu)
+bmenu.add_cascade(label="CRUD", menu=crudMenu)
+bmenu.add_cascade(label="Ayuda", menu=ayudaMenu)
 root.mainloop()
